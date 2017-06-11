@@ -1,0 +1,111 @@
+@model List<AttendanceCapture.Models.Attendance>
+
+@section Scripts
+{
+<link href="~/css/pmd-datatable.css" rel="stylesheet">
+
+<link href="~/css/select.dataTables.min.css" rel="stylesheet">
+      <!-- Datatable js -->
+<script type="text/javascript" language="javascript" src="~/lib/materialize/js/jquery.dataTables.js"></script>
+
+<!-- Datatable Bootstrap -->
+<script type="text/javascript" language="javascript" src="~/lib/materialize/js/dataTables.bootstrap.js"></script>
+
+<!-- Datatable responsive js-->
+<script type="text/javascript" language="javascript" src="~/lib/materialize/js/dataTables.responsive.js"></script>
+
+<!-- Datatable select js-->
+<script type="text/javascript" language="javascript" src="~/lib/materialize/js/dataTables.select.js"></script>
+    <script src="@Url.Content("~/js/custom.js")"></script>
+}
+@{
+    ViewData["Title"] = "History";
+}
+<h2>Index</h2>
+<form asp-action="Index">
+@if (ViewBag.Message != null)
+{
+    if (ViewBag.Message == "success")
+    {
+        <div role="alert" class="alert alert-success alert-dismissible">
+            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>
+            Attendance Sheet successfully created
+        </div>
+    }
+}
+    <div class="col-md-4 paddingTopMore" style="width: 330px;" id="btnSize">
+            <a asp-action="Create" class="btn pmd-tooltip pmd-ripple-effect btn-primary" data-toggle="tooltip" data-placement="top" title="Add a New Attendace Row "><i class="material-icons left">add_circle_outline</i><p>Add New</p></a>
+            <a asp-action="Index" class="btn pmd-tooltip pmd-ripple-effect btn-default" data-toggle="tooltip" data-placement="top" title="Refresh Full List"><i class="material-icons">cached</i><p>Full List</p></a>
+            <button type="submit" class="btn pmd-tooltip pmd-ripple-effect btn-primary"  data-toggle="tooltip" data-placement="top" title="Select Date to Search">
+                <i class="material-icons left">filter_list</i><p>Filter</p>
+            </button>
+        <div class="form-actions no-color" style="width: 300px;">
+            <p>
+                <!--Inline Datepicker -->
+                <div id="datepicker-inline">
+                    <input type="hidden" class="form-control" id="datepicker-data" name="SearchString" value="@ViewData["SearchString"]">
+                </div>
+                
+            </p>
+        </div>
+        </div>
+    <div class="col-md-8 paddingTopMore">
+            <div class="pmd-card pmd-z-depth pmd-card-custom-view">
+                <table id="example" class="table pmd-table table-hover table-striped display responsive nowrap" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().AttendanceID)
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Attendance_Date
+                            </th>
+                            <th>
+                                Attendance_status
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(m => m[i].AttendanceID)
+                                    @Html.HiddenFor(m => m[i].AttendanceID)
+                                </td>
+                                <td>
+
+                                    @Html.DisplayFor(m => m[i].Name)
+                                    @Html.HiddenFor(m => m[i].Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => m[i].Attendance_Date)
+                                    @Html.HiddenFor(m => m[i].Attendance_Date)
+                                </td>
+                                <td>
+                                    @if (Model[i].Attendance_status == true)
+                                    {
+                                        <label style="color: rgba(0, 150, 136, 0.89);">Present</label>
+                                    }
+                                    else
+                                    {
+                                        <label style="color: #EA4961;">Absent</label>
+                                    }
+
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@Model[i].AttendanceID">Edit</a> |
+                                    <a asp-action="Delete" asp-route-id="@Model[i].AttendanceID">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            </div>
+</form>

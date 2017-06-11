@@ -1,0 +1,48 @@
+@model AttendanceCapture.Models.Attendance
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h2 class="pmd-display1">Are you sure you want to delete this Attendance row?</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="AttendanceID" />
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attendance_Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attendance_Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attendance_status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attendance_status)
+            @if (Model.Attendance_status == true)
+            {
+                <label>Present</label>
+            }
+            else
+            {
+                <label>Absent</label>
+            }
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Yes Delete!" class="btn pmd-ripple-effect btn-danger" /> |
+            <a asp-action="Index" class="btn pmd-ripple-effect btn-primary">Back to List</a>
+        </div>
+    </form>
+</div>

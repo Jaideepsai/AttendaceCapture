@@ -1,0 +1,43 @@
+@model AttendanceCapture.Models.Users
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h1 class="pmd-display1" >Are you sure you want to delete this user?</h1>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="ID" />
+        <div class="col-md-3">
+            <div class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth">
+
+                <!-- Card media-->
+                <div class="pmd-card-media">
+                    <!-- Card media heading -->
+                    <div class="media-body">
+                        <h2 class="pmd-card-title-text">@Html.DisplayFor(model => model.Name)</h2>
+                        <span class="pmd-card-subtitle-text">DOB: @String.Format("{0:dd/MM/yyyy}", Model.DOB)</span><br />
+                        <span class="pmd-card-subtitle-text">ID: @Html.DisplayFor(model => model.UnivId)</span>
+                    </div>
+
+                    <!-- Card media image -->
+                    <div class="media-right media-middle">
+                        <a href="javascript:void(0);">
+                            <img width="80" height="80" src="http://vignette1.wikia.nocookie.net/sote-rp/images/c/c4/User-placeholder.png/revision/latest?cb=20150624004222">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dl>
+
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Yes Delete!" class="btn pmd-ripple-effect btn-danger"/> |
+            <a asp-action="Index" class="btn pmd-ripple-effect btn-primary">Back to List</a>
+        </div>
+    </form>
+</div>

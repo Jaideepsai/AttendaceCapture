@@ -1,0 +1,57 @@
+@model AttendanceCapture.Models.Attendance
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container body-content" style="margin-top:60px">
+    <h1 class="pmd-display1">Add New Attendance Row</h1>
+    <form asp-action="Create">
+        <div class="form-horizontal">
+            <h4>Attendance</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendance_Date" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Attendance_Date" id="datetimepicker-default" class="form-control" />
+                    <span asp-validation-for="Attendance_Date" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendance_status" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Attendance_status" class="form-control" style="display:none" />
+                    <div class="pmd-switch">
+                        Absent
+                        <label>
+                            <input type="checkbox">
+                            <span class="pmd-switch-label"></span>
+                        </label> Present
+                    </div>
+                    <span asp-validation-for="Attendance_status" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn pmd-ripple-effect btn-success" />
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div>
+        <a asp-action="Index" class="btn pmd-ripple-effect btn-primary">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

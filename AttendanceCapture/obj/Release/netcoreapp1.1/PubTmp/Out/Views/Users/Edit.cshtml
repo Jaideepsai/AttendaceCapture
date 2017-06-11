@@ -1,0 +1,45 @@
+@model AttendanceCapture.Models.Users
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container body-content" style="margin-top:60px">
+    <h1 class="pmd-display1">Edit Student</h1>
+    <form asp-action="Edit">
+        <div class="form-horizontal">
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Name" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <label asp-for="DOB" class="col-md-2 control-label paddingTop"></label>
+                <div class="col-md-10 paddingTop">
+                    <input asp-for="DOB" class="form-control" type="text" id="datetimepicker-default-edit" />
+                    <span asp-validation-for="DOB" class="text-danger"></span>
+                </div>
+                <label asp-for="UnivId" class="col-md-2 control-label paddingTop"></label>
+                <div class="col-md-10 paddingTop">
+                    <input asp-for="UnivId" class="form-control" />
+                    <span asp-validation-for="UnivId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn pmd-ripple-effect btn-success"/>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div>
+        <a asp-action="Index" class="btn pmd-ripple-effect btn-primary">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

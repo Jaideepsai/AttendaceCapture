@@ -1,0 +1,92 @@
+@model List<AttendanceCapture.Models.Users>
+
+
+@section Scripts
+{
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-toggle.css" />
+}
+@{
+    ViewData["Title"] = "Mark";
+}
+
+<h2>Index</h2>
+
+
+
+<form asp-action="Index">
+  @if (ViewBag.Message != null)
+  {
+      if (ViewBag.Message == "Samedate")
+      {
+        <div role="alert" class="alert alert-danger alert-dismissible">
+            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">x</span></button>
+            Oh snap! Looks like an Attendance sheet with same date exists.. Try changing date and submitting again.
+        </div>
+      }
+      else if (ViewBag.Message == "nullDate")
+      {
+        <div role="alert" class="alert alert-danger alert-dismissible">
+            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">x</span></button>
+            ERROR! This shouldn't be happening try to select date again and submit.
+        </div>
+      }
+  }
+    <div class="col-md-4 paddingTop"style="width: 355px;">
+        <p>
+            <a asp-action="Create" class="btn pmd-ripple-effect btn-primary">Add New Student</a>
+            <a asp-action="viewStudents" class="btn pmd-ripple-effect btn-primary">View All Students</a>
+        </p>
+        <div class="form-actions no-color" style="width: 314px;">
+            <p style="font-size: 1.2em;padding-left: 0;font-weight: 500;">Select a date:
+                <!--Inline Datepicker -->
+                <div id="datepicker-inline"style="padding-left: 10px;">
+                    <input type="hidden" class="form-control" id="datepicker-data"  name="selectedDate" value="@ViewData["selectedDate"]">
+                </div>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-8 paddingTop"  id="studentsTable">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>Attendance</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => m[i].Name)
+                            @Html.HiddenFor(m => m[i].Name)
+
+                        </td>
+                        <td>
+                            @Html.CheckBoxFor(m => m[i].Temporary_status, new { @class = "bindCheckBox" })
+                            <div class="pmd-switch">
+                                <p class="absent">Absent</p>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="pmd-switch-label"></span>
+                                </label><p class="present">Present</p>
+                            </div>
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@Model[i].ID">Edit</a> |
+                            <a asp-action="viewStudents">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@Model[i].ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn pmd-ripple-effect btn-success" />
+        </div>
+        </div>
+</form>

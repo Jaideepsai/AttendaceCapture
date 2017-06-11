@@ -1,0 +1,50 @@
+@model AttendanceCapture.Models.Attendance
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container body-content" style="margin-top:60px">
+    <h1 class="pmd-display1">Edit Attendance status</h1>
+
+    <form asp-action="Edit">
+        <div class="form-horizontal">
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AttendanceID" />
+            <div class="form-group">
+                <label asp-for="Name" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Name" class="form-control" readonly />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendance_Date" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Attendance_Date" class="form-control" readonly />
+                    <span asp-validation-for="Attendance_Date" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendance_status" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Attendance_status" class="form-control" />**Check for present and Uncheck for absent
+                    <span asp-validation-for="Attendance_status" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn pmd-ripple-effect btn-success" />
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div>
+        <a asp-action="Index" class="btn pmd-ripple-effect btn-primary">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

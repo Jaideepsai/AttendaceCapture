@@ -1,0 +1,9 @@
+C:\Users\jaideep\documents\visual studio 2017\Projects\AttendanceCapture\AttendanceCapture\bin\Release\netcoreapp1.1\AttendanceCapture.deps.json
+C:\Users\jaideep\documents\visual studio 2017\Projects\AttendanceCapture\AttendanceCapture\bin\Release\netcoreapp1.1\AttendanceCapture.runtimeconfig.json
+C:\Users\jaideep\documents\visual studio 2017\Projects\AttendanceCapture\AttendanceCapture\bin\Release\netcoreapp1.1\AttendanceCapture.runtimeconfig.dev.json
+C:\Users\jaideep\documents\visual studio 2017\Projects\AttendanceCapture\AttendanceCapture\bin\Release\netcoreapp1.1\AttendanceCapture.dll
+C:\Users\jaideep\documents\visual studio 2017\Projects\AttendanceCapture\AttendanceCapture\bin\Release\netcoreapp1.1\AttendanceCapture.pdb
+C:\Users\jaideep\documents\visual studio 2017\Projects\AttendanceCapture\AttendanceCapture\obj\Release\netcoreapp1.1\AttendanceCapture.csprojResolveAssemblyReference.cache
+C:\Users\jaideep\documents\visual studio 2017\Projects\AttendanceCapture\AttendanceCapture\obj\Release\netcoreapp1.1\AttendanceCapture.AssemblyInfo.cs
+C:\Users\jaideep\documents\visual studio 2017\Projects\AttendanceCapture\AttendanceCapture\obj\Release\netcoreapp1.1\AttendanceCapture.dll
+C:\Users\jaideep\documents\visual studio 2017\Projects\AttendanceCapture\AttendanceCapture\obj\Release\netcoreapp1.1\AttendanceCapture.pdb

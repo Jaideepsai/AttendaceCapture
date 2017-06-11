@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzYE3oQVv1kqi8QeZZfd6RgAAAAACAAAAAAAQZgAAAAEAACAAAAAli8D6RSaxcgB7Nirb3N7HnpjgF96yl50DX8jK51SF6gAAAAAOgAAAAAIAACAAAAAVOyFeyjFz6ehbq1SWYbqanTa+enRNc1+ljOyn/2UxV4AAAABVlFb/CSB71usvxFi39IV9m2yhglhpFysHj5XGIO0l7BTdo/IuMgnIxPuUgx2xfMAnP/cykikBBsbtlRox1SMfvtCFxcJXwtU64SsNdUEtNqp66qOkTPD5BLefNLNSq+wLtwgQoECbPGRh8jfdgs5mzPGA1oduUY97MONIsZzK/0AAAAC/UalKUSUvmJrdn/1SC1pIxQFklASYSO44Tel094VOW1ZVR6N2WtxpJUMpEoVthf8xW+8DahwmtPlYGSSN57RV</EncryptedPassword>
+    <_NewBackgroundProfile>True</_NewBackgroundProfile>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:attendancecapturedbserver.database.windows.net,1433;Initial Catalog=AttendanceCapture_db;User Id=adminuser@attendancecapturedbserver;Password=kalapatapU#26</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

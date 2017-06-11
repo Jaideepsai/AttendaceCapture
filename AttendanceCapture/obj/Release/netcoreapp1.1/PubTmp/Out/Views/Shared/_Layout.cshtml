@@ -1,0 +1,110 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Attendance Capture</title>
+
+    <environment names="Development,Staging,Production">
+        <link rel="stylesheet" href="~/css/Loader_style.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-toggle.css" />
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="~/lib/materialize/css/propeller.css" />
+       
+        <link href="~/css/dataTables.bootstrap.min.css" rel="stylesheet">
+        <link href="~/css/responsive.bootstrap.min.css" rel="stylesheet">
+        <link href="~/css/select.dataTables.min.css" rel="stylesheet">
+        <link href="~/css/pmd-datatable.css" rel="stylesheet">
+        <link href="~/css/bootstrap-datetimepicker.css" rel="stylesheet">
+        <link href="~/css/pmd-datetimepicker.css" rel="stylesheet">
+    </environment>
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body>
+    <div id="divLoader" style="display:block;"> 
+        <div class="loader">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Attendances" asp-action="Index" class="navbar-brand">Attendance Capture</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Attendances" asp-action="Index">Attendance History</a></li>
+                        <li><a asp-area="" asp-controller="Users" asp-action="Index">Mark Attendance</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+    @*
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo center">Attendance Capture</a>
+                <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a asp-controller="Attendances" asp-action="Index" class="active">Attendance List</a></li>
+                    <li><a asp-controller="Users" asp-action="Index">Students</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <ul class="side-nav" id="mobile-demo">
+        <li><a asp-controller="Attendances" asp-action="Index">Attendance List</a></li>
+        <li><a asp-controller="Users" asp-action="Index">Students</a></li>
+    </ul>
+    *@
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    <environment names="Development,Staging,Production">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/materialize/js/propeller.js"></script>
+        <!-- Datatable js -->
+        <script type="text/javascript" language="javascript" src="~/lib/materialize/js/jquery.dataTables.js"></script>
+
+        <!-- Datatable Bootstrap -->
+        <script type="text/javascript" language="javascript" src="~/lib/materialize/js/dataTables.bootstrap.js"></script>
+
+        <!-- Datatable responsive js-->
+        <script type="text/javascript" language="javascript" src="~/lib/materialize/js/dataTables.responsive.js"></script>
+
+        <!-- Datatable select js-->
+        <script type="text/javascript" language="javascript" src="~/lib/materialize/js/dataTables.select.js"></script>
+        <!-- Propeller textfield js -->
+        <script type="text/javascript" src="~/lib/materialize/js/textfield.js"></script>
+
+        <!-- Datepicker moment with locales -->
+        <script type="text/javascript" language="javascript" src="~/lib/materialize/js/moment-with-locales.js"></script>
+
+        <!-- Propeller Bootstrap datetimepicker -->
+        <script type="text/javascript" language="javascript" src="~/lib/materialize/js/bootstrap-datetimepicker.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

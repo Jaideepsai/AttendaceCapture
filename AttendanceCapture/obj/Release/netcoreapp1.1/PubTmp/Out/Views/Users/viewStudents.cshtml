@@ -1,0 +1,68 @@
+﻿@model List<AttendanceCapture.Models.Users>
+
+@{
+    ViewData["Title"] = "ViewStudents";
+}
+<!--Media, Title, and Action Area -->
+<div class="container body-content" style="margin-top:60px">
+    <div style="padding-left:15px">
+        <a asp-action="Index" class="btn pmd-ripple-effect btn-primary">Back to List</a>
+        <h2>STUDENTS:</h2>
+    </div>
+    <div tabindex="-1" class="modal fade" id="avatar-dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header pmd-modal-bordered">
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                    <h2 class="pmd-card-title-text">Full Details and Stats</h2>
+                </div>
+                <div class="pmd-modal-list">
+                    <ul class="list-group pmd-list">
+                        <li class="list-group-item">Full Name: Jaideep Sai Kalapatapu</li>
+                        <li class="list-group-item">DOB:26-09-1994</li>
+                        <li class="list-group-item">Email Id:jaideepsai@yahoo.com</li>
+                        <li class="list-group-item">Attendance Avg:90%</li>
+                        <li class="list-group-item">Comments:He Developed this site:-)</li>
+                    </ul>
+                </div>
+                <div class="pmd-modal-action text-right pmd-modal-bordered">
+                    <p style="float: left;">**This modal and the image are static as a prototype</p>
+                    <button data-dismiss="modal" class="btn pmd-ripple-effect btn-primary pmd-btn-flat" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@for (int i = 0; i < Model.Count; i++)
+{
+    <div class="col-md-3">
+        <div class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth">
+
+            <!-- Card media-->
+            <div class="pmd-card-media">
+                <!-- Card media heading -->
+                <div class="media-body">
+                    <h2 class="pmd-card-title-text">@Html.DisplayFor(m => m[i].Name)</h2>
+                    <span class="pmd-card-subtitle-text">DOB: @String.Format("{0:dd/MM/yyyy}", Model[i].DOB)</span><br />
+                    <span class="pmd-card-subtitle-text">ID: @Html.DisplayFor(m => m[i].UnivId)</span>
+                </div>
+
+                <!-- Card media image -->
+                <div class="media-right media-middle">
+                    <a href="javascript:void(0);">
+                        <img width="80" height="80" src="http://vignette1.wikia.nocookie.net/sote-rp/images/c/c4/User-placeholder.png/revision/latest?cb=20150624004222">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card action -->
+            <div class="pmd-card-actions">
+                <button data-target="#avatar-dialog" data-toggle="modal" class="btn pmd-btn-flat pmd-ripple-effect btn-primary" type="button">Details</button>
+                <button data-target="#avatar-dialog" data-toggle="modal"  type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-default">Stats</button>
+            </div>
+        </div>
+    </div>
+}
+    </div>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
